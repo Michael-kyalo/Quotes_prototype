@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.LoginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/top">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/login_anim"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="50dp"
+            android:visibility="visible"
+            app:lottie_rawRes="@raw/userprofile"
+            app:lottie_autoPlay="true"
+            app:lottie_colorFilter="@color/colorGrey"
+            app:lottie_loop="true"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/login_anim_loading"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="50dp"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/infiniteloader"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/login_failed"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="50dp"
+            android:visibility="gone"
+            app:lottie_rawRes="@raw/failed"
+            app:lottie_autoPlay="true"
+            app:lottie_colorFilter="@color/colorAccent"
+            app:lottie_loop="true"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/top"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/eb_garamond"
+            android:padding="5dp"
+            android:text="Welcome to Quotes."
+            android:textColor="@color/colorGrey"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_grey"
+            android:fontFamily="@font/amethysta"
+            android:padding="10dp"
+            android:text="Signin With Google"
+            android:textColor="@color/colorPrimary" />
+
+    </LinearLayout>
+
+</RelativeLayout>

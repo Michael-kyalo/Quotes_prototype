@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "933522345481",
+    "firebase_url": "https://magazine-prototype.firebaseio.com",
+    "project_id": "magazine-prototype",
+    "storage_bucket": "magazine-prototype.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933522345481:android:fad0b2d9b03540fec232d8",
+        "android_client_info": {
+          "package_name": "com.mikonski.quotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933522345481-6btvs8303u0vf9vlojs2u5agkte0st8f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mikonski.quotes",
+            "certificate_hash": "adb9cd3347251b49c49f0793e6be8de3cef26750"
+          }
+        },
+        {
+          "client_id": "933522345481-cdv8f4d7e62invgu96mvmibbjra68vi9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSvAw0-A0OJBoLwXcfbfhdLHtMuyCfno0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933522345481-cdv8f4d7e62invgu96mvmibbjra68vi9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
