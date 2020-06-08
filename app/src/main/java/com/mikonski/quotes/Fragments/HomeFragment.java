@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     ArrayList<FullPost> fullPostArrayList = new ArrayList<>();
     FeedRecyclerAdapter feedRecyclerAdapter;
+    ProgressBar progressBar;
 
 
     public HomeFragment() {
@@ -49,11 +51,13 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         feedRecyclerAdapter = new FeedRecyclerAdapter(getContext(),fullPostArrayList);
+        progressBar = view.findViewById(R.id.progressBar);
         // Inflate the layout for this fragment
         recyclerView = view.findViewById(R.id.feedRecycler);
         recyclerView.setAdapter(feedRecyclerAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setStackFromEnd(true);
+
 
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -62,7 +66,7 @@ public class HomeFragment extends Fragment {
         all = view.findViewById(R.id.text_all);
         prayers = view.findViewById(R.id.text_prayers);
         devotions = view.findViewById(R.id.text_devotions);
-        requests = view.findViewById(R.id.text_requests);
+
 
         db.collection("Posts").orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -75,6 +79,7 @@ public class HomeFragment extends Fragment {
                     }
                     feedRecyclerAdapter.notifyDataSetChanged();
                 }
+                progressBar.setVisibility(View.GONE);
                 recyclerView.scrollToPosition(0);
 
             }
@@ -91,8 +96,8 @@ public class HomeFragment extends Fragment {
                 devotions.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
                 prayers.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
                 devotions.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
-                requests.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                requests.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
+                progressBar.setVisibility(View.VISIBLE);
+
                 fullPostArrayList.clear();
 
 
@@ -108,6 +113,8 @@ public class HomeFragment extends Fragment {
                                 fullPostArrayList.add(fullPost);
                             }
                             feedRecyclerAdapter.notifyDataSetChanged();
+
+                            progressBar.setVisibility(View.GONE);
                             recyclerView.scrollToPosition(0);
                         }
 
@@ -126,8 +133,8 @@ public class HomeFragment extends Fragment {
                 devotions.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
                 all.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
                 devotions.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
-                requests.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                requests.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
+                progressBar.setVisibility(View.VISIBLE);
+
                 fullPostArrayList.clear();
 
                 db.collection("Posts").orderBy("date", Query.Direction.DESCENDING).whereEqualTo("post_type", "Prayer").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -141,6 +148,7 @@ public class HomeFragment extends Fragment {
                                 fullPostArrayList.add(fullPost);
                             }
                             feedRecyclerAdapter.notifyDataSetChanged();
+                            progressBar.setVisibility(View.GONE);
                             recyclerView.scrollToPosition(0);
                         }
 
@@ -159,8 +167,8 @@ public class HomeFragment extends Fragment {
                 all.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
                 all.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
                 prayers.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
-                requests.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                requests.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
+                progressBar.setVisibility(View.VISIBLE);
+
                 fullPostArrayList.clear();
 
                 db.collection("Posts").whereEqualTo("post_type", "Devotion").orderBy("date", Query.Direction.DESCENDING).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -174,6 +182,7 @@ public class HomeFragment extends Fragment {
                                 fullPostArrayList.add(fullPost);
                             }
                             feedRecyclerAdapter.notifyDataSetChanged();
+                            progressBar.setVisibility(View.GONE);
                             recyclerView.scrollToPosition(0);
                         }
 
@@ -181,36 +190,7 @@ public class HomeFragment extends Fragment {
                 });
             }
         });
-        requests.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                requests.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_selected));
-                requests.setTextColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
-                prayers.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                all.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                all.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
-                prayers.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
-                devotions.setBackground(Objects.requireNonNull(getContext()).getResources().getDrawable(R.drawable.chip_unselected));
-                devotions.setTextColor(getContext().getResources().getColor(R.color.colorGrey));
 
-                fullPostArrayList.clear();
-
-                db.collection("Posts").orderBy("date", Query.Direction.DESCENDING).whereEqualTo("post_type", "Requests").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if(task.isSuccessful()){
-                            for (QueryDocumentSnapshot document: Objects.requireNonNull(task.getResult())){
-                                FullPost fullPost = document.toObject(FullPost.class);
-                                fullPostArrayList.add(fullPost);
-                            }
-                            feedRecyclerAdapter.notifyDataSetChanged();
-                            recyclerView.scrollToPosition(0);
-                        }
-
-                    }
-                });
-            }
-        });
 
         return view;
     }

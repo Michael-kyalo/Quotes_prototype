@@ -28,7 +28,7 @@
                 android:fontFamily="@font/amethysta"
                 android:text="@string/all"
                 android:textColor="@color/colorLightGreyText"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/text_date"
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/amethysta"
                 android:text="@string/all"
                 android:textColor="@color/colorLightGreyText"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -61,8 +61,46 @@
             android:fontFamily="@font/amethysta"
             android:text=""
             android:textColor="@color/colorLightGreyText"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:padding="5dp"
+                android:src="@drawable/ic_action_bookmarks_outline"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/bookmark"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:id="@+id/comment_tv"
+                android:layout_marginStart="5dp"
+                android:textSize="12sp"
+                android:textColor="@color/colorAccent"
+                android:text="( 0 )"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/comment"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingEnd="5dp"
+                android:src="@drawable/ic_action_comments"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/tweet"
+                android:padding="5dp"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/ic_action_tweet"/>
+        </LinearLayout>
 
     </LinearLayout>
 

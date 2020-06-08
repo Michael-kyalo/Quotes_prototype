@@ -23,7 +23,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/amethysta"
-                    android:text="Quotes."
+                    android:text="@string/app_name"
                     android:textColor="@color/colorGrey"
                     android:textSize="18sp"
                     android:textStyle="bold" />

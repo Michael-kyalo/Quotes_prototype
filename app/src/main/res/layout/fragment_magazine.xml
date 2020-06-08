@@ -21,12 +21,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/amethysta"
-                android:text="Download Magazine"
+                android:text="About Devotions"
                 android:textColor="@color/colorLightGreyText"
                 android:textSize="18sp"
                 android:padding="10dp"
                 android:textStyle="bold" />
         </com.google.android.material.card.MaterialCardView>
+        <ScrollView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amethysta"
+                        android:text="Devotions is an app that seeks to connect believers in prayer and devotion. Believers from around the world are able to share prayer items wit other believers. Devotions was inspired by the need to keep believers together in the trying times of the Covid-19 pandemic which has led to churches being shut down in many countries globally. \n \n This is the first version of Devotions. For the best user experience the development team opted not to include ads, to support upcoming versions, updates and to help maintain the application please consider donating to the developers."
+                        android:textColor="@color/colorGrey"
+                        android:textSize="14sp"
+                        android:padding="10dp"
+                        android:textStyle="bold" />
+                </com.google.android.material.card.MaterialCardView>
+                <EditText
+                    android:id="@+id/edtAmount"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_amount"
+                    android:padding="10dp"
+                    android:backgroundTint="@color/colorBlue"
+                    android:textColor="@color/colorGrey"
+                    android:layout_margin="1dp"/>
+                <Button
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="donate"
+                    android:padding="10dp"
+                    android:id="@+id/btnPayNow"
+                    android:backgroundTint="@color/colorBlue"
+                    android:textColor="#ffffff"
+                    android:layout_margin="1dp"/>
+
+            </LinearLayout>
+        </ScrollView>
+
+
     </LinearLayout>
 
 

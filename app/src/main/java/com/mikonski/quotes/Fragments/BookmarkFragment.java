@@ -39,7 +39,6 @@ public class BookmarkFragment extends Fragment {
         arrayList.add(new BookMark("all"));
         arrayList.add(new BookMark("prayers"));
         arrayList.add(new BookMark("devotions"));
-        arrayList.add(new BookMark("requests"));
 
         recyclerView = view.findViewById(R.id.rec);
 

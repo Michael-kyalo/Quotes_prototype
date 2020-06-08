@@ -2,9 +2,10 @@ package com.mikonski.quotes.Models;
 
 import com.google.firebase.firestore.ServerTimestamp;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FullPost {
+public class FullPost implements Serializable {
     String post_id;
     String post_type;
     String post_body;

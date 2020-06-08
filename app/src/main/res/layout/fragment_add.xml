@@ -127,11 +127,10 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/login_anim_loading"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="250dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
                 android:padding="50dp"
                 android:visibility="visible"
                 app:lottie_rawRes="@raw/infiniteloader"

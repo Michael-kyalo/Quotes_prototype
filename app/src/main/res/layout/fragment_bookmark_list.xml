@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.RequestsFragment">
+    tools:context=".Fragments.BookmarkFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -15,29 +15,36 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardElevation="0dp"
             android:padding="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="10"
                 android:orientation="horizontal">
-                <TextView
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="9"
+                    android:id="@+id/back"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_action_back"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:fontFamily="@font/amethysta"
-                    android:text="My prayers and devotions"
+                    android:text="My Bookmarks"
                     android:textColor="@color/colorLightGreyText"
                     android:textSize="18sp"
                     android:padding="10dp"
                     android:textStyle="bold" />
-
             </LinearLayout>
+
 
 
 
         </com.google.android.material.card.MaterialCardView>
         <ProgressBar
+            android:layout_margin="5dp"
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
@@ -48,10 +55,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:padding="10dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/rec"/>
 
     </LinearLayout>
-
 
 </FrameLayout>
